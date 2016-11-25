@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#EAECEE"
+              android:orientation="vertical"
+              android:baselineAligned="false">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:src="@mipmap/watch_5"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E3E4E5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_heard_picture"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/input_account_described"
+                android:textColor="@color/register_text_color"
+                android:textSize="15dp"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:background="#8B8B8B"
+                />
+
+            <EditText
+                android:id="@+id/login_pager_input_account_ed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/input_account_hint"
+                android:inputType="textWebEmailAddress"
+                android:textColor="@color/register_text_color"
+                android:textColorHint="@color/register_text_color"
+                android:textSize="13dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E3E4E5"/>
+
+        //Input password
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_password_picture"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/input_password_described"
+                android:textColor="@color/register_text_color"
+                android:textSize="15dp"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="5dp"
+                android:background="#8B8B8B"
+                />
+
+            <EditText
+                android:id="@+id/login_pager_input_password_ed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="@string/input_password_hint"
+                android:inputType="textPassword"
+                android:textColor="@color/register_text_color"
+                android:textColorHint="@color/register_text_color"
+                android:textSize="13dp"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E3E4E5"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/button_background_shape"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/welcome_login_button"
+        />
+
+    <CheckBox
+        android:id="@+id/login_memory_password"
+        android:text="@string/memory_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:button="@drawable/checkbox_button_shape"
+        android:textColor="@color/text_color_default"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="18dp"
+        android:paddingLeft="3dp"
+/>
+</LinearLayout>
