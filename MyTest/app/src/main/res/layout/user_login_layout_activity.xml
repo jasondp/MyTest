@@ -3,8 +3,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="#EAECEE"
-              android:orientation="vertical"
-              android:baselineAligned="false">
+              android:baselineAligned="false"
+              android:orientation="vertical">
 
     <ImageView
         android:layout_width="60dp"
@@ -127,31 +127,78 @@
                 android:textSize="13dp"
                 />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E3E4E5"/>
     </LinearLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@drawable/button_background_shape"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="18dp"
+        android:background="@drawable/button_background_shape"
         android:text="@string/welcome_login_button"
+        android:textSize="18sp"
         />
 
-    <CheckBox
-        android:id="@+id/login_memory_password"
-        android:text="@string/memory_password"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:button="@drawable/checkbox_button_shape"
-        android:textColor="@color/text_color_default"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="18dp"
-        android:paddingLeft="3dp"
-/>
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <CheckBox
+            android:id="@+id/login_memory_password"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:button="@drawable/checkbox_select"
+            android:paddingLeft="3dp"
+            android:text="@string/memory_password"
+            android:textColor="@color/text_color_default"
+            android:textSize="16dp"
+            />
+
+        <Button
+            android:id="@+id/login_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:background="@null"
+            android:text="@string/forget_password"
+            android:textColor="@color/text_color_default"
+            android:textSize="16sp"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_default"
+            android:text="@string/no_have_account"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_frame_shape"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            android:text="@string/now_register"
+            android:textColor="@color/select_text_color"
+            />
+    </LinearLayout>
 </LinearLayout>
