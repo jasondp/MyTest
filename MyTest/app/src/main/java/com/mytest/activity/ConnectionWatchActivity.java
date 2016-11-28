@@ -25,6 +25,7 @@ public class ConnectionWatchActivity extends BaseActivity {
     private BluetoothAdapter bluetoothAdapter;
     private Set<BluetoothDevice> bondedDevices;
     private List<BluetoothDevice> usableDevice;
+    private long olderTime;
 
     private BroadcastReceiver foundDevice = new BroadcastReceiver() {
         @Override
@@ -39,7 +40,8 @@ public class ConnectionWatchActivity extends BaseActivity {
 
                     usableDevice.add(bluetoothDevice);
                 }
-            } else if (action.equals(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE)) {
+
+            } else if (action.equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
                 if (usableDevice.size() <= 0) {
                     Toast.makeText(ConnectionWatchActivity.this
                             , getString(R.string.not_found_device), Toast.LENGTH_SHORT).show();
@@ -59,7 +61,6 @@ public class ConnectionWatchActivity extends BaseActivity {
                     }
                 }
             }
-
         }
     };
 
@@ -71,6 +72,7 @@ public class ConnectionWatchActivity extends BaseActivity {
         bluetoothAdapter = getObject().getBluetoothAdapter();
         bondedDevices = bluetoothAdapter.getBondedDevices();
         usableDevice = new ArrayList<>();
+        olderTime = System.currentTimeMillis();
         if (bondedDevices.size() > 0) {
             for (BluetoothDevice device : bondedDevices) {
                 if (device.getName().contains("Nevo")) {
@@ -90,7 +92,7 @@ public class ConnectionWatchActivity extends BaseActivity {
         IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(foundDevice, intentFilter);
 
-        IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+        IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
         registerReceiver(foundDevice, filter);
 
         if (bluetoothAdapter.isDiscovering()) {

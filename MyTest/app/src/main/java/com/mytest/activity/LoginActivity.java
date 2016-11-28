@@ -78,7 +78,7 @@ public class LoginActivity extends BaseActivity implements Callback<UserLoginRes
         boolean result = checkParameter(inputAccount, inputPassword);
         if (result) {
             progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle(R.string.wait_some_time);
+            progressDialog.setMessage(getString(R.string.wait_some_time));
             progressDialog.show();
             PreferencesUtils.saveUserAccount(this, inputAccount);
             login();
