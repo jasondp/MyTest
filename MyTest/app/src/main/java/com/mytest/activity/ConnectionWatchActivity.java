@@ -36,7 +36,7 @@ public class ConnectionWatchActivity extends BaseActivity {
 
                 if (bluetoothDevice.getName().contains("Nevo")
                         && bluetoothDevice.getBondState() != BluetoothDevice.BOND_BONDED) {
-                    
+
                     usableDevice.add(bluetoothDevice);
                 }
             } else if (action.equals(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE)) {
