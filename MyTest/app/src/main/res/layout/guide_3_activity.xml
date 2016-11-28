@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:roboto="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_tutorial_page4_start_textview"
+        android:textColor="@color/text_color_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+       android:textStyle="bold"
+        android:textSize="36sp"
+        android:layout_marginTop="50dp"
+        android:text="@string/guide_3_title"/>
+
+    <TextView
+        android:id="@+id/activity_tutorial_page4_notice_textview"
+        android:layout_below="@id/activity_tutorial_page4_start_textview"
+        android:textColor="@color/register_text_color"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="@string/guide_3_text"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/button_next_text"
+        android:textAllCaps="false"
+        android:id="@+id/activity_tutorial_4_next_button"
+        android:background="@drawable/button_background_shape"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"/>
+
+    <ImageView
+        android:id ="@+id/activity_tutorial_page4_open_bt_image"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:background="@null"
+        android:src="@drawable/tutorial_nevo_bt_onoff"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

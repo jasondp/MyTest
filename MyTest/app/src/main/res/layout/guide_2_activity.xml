@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:roboto="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_tutorial_page3_start_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/guide_2_title"
+        android:textColor="@color/text_color_default"
+        android:textSize="36sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/activity_tutorial_page3_notice_textview"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="@string/guide_2_text"
+        android:textColor="@color/register_text_color"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/activity_tutorial_page3_image"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/tutorial_nevo_settime"
+        />
+
+    <Button
+        android:id="@+id/activity_tutorial_3_next_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background_shape"
+        android:text="@string/button_next_text"
+        android:layout_marginTop="40dp"
+        android:textAllCaps="false"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="60dp"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"/>
+
+</LinearLayout>

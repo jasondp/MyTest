@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:roboto="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center">
+
+    <TextView
+        android:id="@+id/activity_tutorial_page1_start_textview"
+        android:textColor="@color/text_color_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:text="@string/welcome_tutorial_title"/>
+
+    <TextView
+        android:id="@+id/activity_tutorial_page1_notice_textview"
+        android:textColor="@color/register_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/guide_1_text"
+        />
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_weight="1"
+        android:padding="20dp"
+        android:layout_below="@id/activity_tutorial_page1_notice_textview"
+        android:src="@drawable/tutorial_nevo_1"
+        android:background="@null"
+        android:id="@+id/imageView"/>
+
+    <Button
+        android:id="@+id/activity_tutorial_1_activate_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="@string/guide_1_button"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_background_shape"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@android:color/white"
+        />
+
+</LinearLayout>
