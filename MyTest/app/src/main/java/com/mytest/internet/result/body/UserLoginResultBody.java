@@ -1,21 +1,34 @@
 package com.mytest.internet.result.body;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Jason on 2016/11/28.
  */
 
 public class UserLoginResultBody {
 
+    @SerializedName("id")
     private int id;
+    @SerializedName("last_name")
     private String last_name;
+    @SerializedName("first_name")
     private String first_name;
+    @SerializedName("birthday")
     private UserBirthdayTime birthday;
+    @SerializedName("weight")
     private float weight;
+    @SerializedName("length")
     private int length;
+    @SerializedName("sex")
     private int sex;
+    @SerializedName("last_longitude")
     private int last_longitude;
+    @SerializedName("latitude")
     private int last_latitude;
+    @SerializedName("email")
     private String email;
+    @SerializedName("verified_email")
     private boolean verified_email;
 
     public int getId() {

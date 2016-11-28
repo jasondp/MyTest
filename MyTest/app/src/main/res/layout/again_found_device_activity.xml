@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:roboto="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:background="@color/window_background_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_tutorial_page5_search_failure_textview"
+        android:textColor="@color/text_color_default"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:text="@string/again_found_title"/>
+
+    <ImageView
+        android:id="@+id/activity_tutorial_page6_image"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bluetooth_icon"/>
+
+    <Button
+        android:id="@+id/activity_tutorial_retry_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/again_found_button_text"
+        android:background="@drawable/button_background_shape"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/activity_tutorial_page6_image"
+        />
+
+</RelativeLayout>

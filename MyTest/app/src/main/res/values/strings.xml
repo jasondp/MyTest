@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">MyTest</string>
     <string name="next_pager">开始</string>
-    <string name="welcome_tutorial_title">让我们开始</string>
+    <string name="welcome_tutorial_title">欢迎使用</string>
     <string name="welcome_input_user_email">输入您的帐号</string>
     <string name="welcome_input_user_password">出入您的密码</string>
     <string name="welcome_register_button">注  册</string>
     <string name="welcome_login_button">登  录</string>
+    <string name="welcome_pear_button">跳 过</string>
     <string name="input_account_described">帐号</string>
     <string name="input_account_hint">请输入邮箱</string>
     <string name="input_password_described">密码</string>
@@ -19,4 +20,19 @@
     <string name="input_account_is_null">帐号不能为空!</string>
     <string name="input_password_is_null">密码不能为空!</string>
     <string name="input_account_format_error">邮箱格式错误!</string>
+    <string name="connect_watch_title">正在搜索&#8230;</string>
+    <string name="connect_watch_text">保持手表接近您的电话</string>
+    <string name="guide_3_title">打开手表蓝牙</string>
+    <string name="button_next_text">下一步</string>
+    <string name="guide_3_text">按住第三键3秒钟，直到蓝灯闪烁.</string>
+    <string name="guide_2_title">设置时间</string>
+    <string name="guide_2_text">拉出中间按钮，可旋转时针分针来调整您的手表时间.</string>
+    <string name="guide_1_title">让我们开始</string>
+    <string name="guide_1_button">激活您的手表</string>
+    <string name="guide_1_text">设置您的手表，跟踪和分析您的个人健康和健身数据.</string>
+    <string name="wait_some_time">请稍等...</string>
+    <string name="please_open_bluetooth">请开启蓝牙设备,否则无法连接手表！</string>
+    <string name="not_found_device">没有搜索到可用的设备！</string>
+    <string name="again_found_title">连接手表失败</string>
+    <string name="again_found_button_text">重 试</string>
 </resources>

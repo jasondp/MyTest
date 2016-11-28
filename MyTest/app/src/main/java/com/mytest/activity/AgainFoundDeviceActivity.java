@@ -9,22 +9,21 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by boy on 2016/11/28.
- *
+ * Created by boy on 2016/11/29.
  */
 
-public class GuideActivity1 extends BaseActivity {
+public class AgainFoundDeviceActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.guyide_1_activtity);
+        setContentView(R.layout.again_found_device_activity);
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.activity_tutorial_1_activate_button)
-    public void nextPager(){
-        startActivity(GuideActivity2.class);
+    @OnClick(R.id.activity_tutorial_retry_button)
+    public void againConnect(){
+        startActivity(ConnectionWatchActivity.class);
         finish();
     }
 }

@@ -1,5 +1,6 @@
 package com.mytest.internet.result.base;
 
+import com.google.gson.annotations.SerializedName;
 import com.mytest.internet.result.body.UserLoginResultBody;
 
 /**
@@ -8,6 +9,7 @@ import com.mytest.internet.result.body.UserLoginResultBody;
 
 public class UserLoginResult extends BaseResult {
 
+    @SerializedName("user")
     private UserLoginResultBody user;
 
     public UserLoginResultBody getUser() {

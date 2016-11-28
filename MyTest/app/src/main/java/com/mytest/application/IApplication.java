@@ -1,6 +1,8 @@
 package com.mytest.application;
 
 import android.app.Application;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.os.Handler;
 
 import com.mytest.util.Constants;
@@ -15,12 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class IApplication extends Application {
 
     private Handler mHandler;
-    private  Retrofit retrofit;
+    private Retrofit retrofit;
+    private BluetoothAdapter bluetoothAdapter;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mHandler = new Handler();
     }
 
     public Handler getPubicHandler() {
@@ -30,12 +32,23 @@ public class IApplication extends Application {
         return mHandler;
     }
 
-    public Retrofit getRetrofit(){
-        if(retrofit == null) {
+    public Retrofit getRetrofit() {
+        if (retrofit == null) {
             retrofit = new Retrofit.Builder().baseUrl(Constants.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create()).build();
         }
         return retrofit;
     }
 
+    public BluetoothAdapter getBluetoothAdapter(){
+        if(bluetoothAdapter == null){
+            bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        }
+        return bluetoothAdapter;
+    }
+
+    public boolean startConnectDevice(BluetoothDevice bluetoothDevice) {
+
+        return false;
+    }
 }

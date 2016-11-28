@@ -54,7 +54,7 @@
             android:layout_marginLeft="72dp"
             android:layout_marginRight="72dp"
             android:background="@drawable/button_background_shape"
-            android:hint="@string/welcome_register_button"
+            android:text="@string/welcome_register_button"
             android:paddingLeft="6dp"
             />
         <Button
@@ -65,7 +65,18 @@
             android:layout_marginRight="72dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/button_background_shape"
-            android:hint="@string/welcome_login_button"
+            android:text="@string/welcome_login_button"
+            android:paddingLeft="6dp"
+            />
+        <Button
+            android:id="@+id/welcome_pear_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="72dp"
+            android:layout_marginRight="72dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_background_shape"
+            android:text="@string/welcome_pear_button"
             android:paddingLeft="6dp"
             />
     </LinearLayout>

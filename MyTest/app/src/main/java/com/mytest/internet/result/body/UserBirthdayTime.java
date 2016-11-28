@@ -1,13 +1,18 @@
 package com.mytest.internet.result.body;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Jason on 2016/11/28.
  */
 
 public class UserBirthdayTime {
 
+    @SerializedName("date")
     private String date;
+    @SerializedName("timezone_type")
     private int timezone_type;
+    @SerializedName("timezone")
     private String timezone;
 
     public String getDate() {

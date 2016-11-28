@@ -10,6 +10,7 @@ import butterknife.OnClick;
 
 /**
  * Created by boy on 2016/11/28.
+ *
  */
 
 public class GuideActivity2 extends BaseActivity {

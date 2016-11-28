@@ -1,13 +1,18 @@
 package com.mytest.internet.result.base;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Jason on 2016/11/28.
  */
 
 public class BaseResult {
 
+    @SerializedName("version")
     private float version;
+    @SerializedName("message")
     private String message;
+    @SerializedName("status")
     private int status;
 
     public float getVersion() {
