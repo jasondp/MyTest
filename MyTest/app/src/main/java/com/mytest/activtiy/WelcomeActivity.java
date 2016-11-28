@@ -32,7 +32,7 @@ public class WelcomeActivity extends BaseActivity implements ViewPager.OnPageCha
     LinearLayout pointGroup;
     private LooperImageAdapter looperAdapter;
     private List<ImageView> imageList;
-    private Handler handler = new Handler();
+    private Handler handler;
     private int[] ImageData = {R.mipmap.watch_1, R.mipmap.watch_2
             , R.mipmap.watch_3, R.mipmap.watch_4, R.mipmap.watch_5, R.mipmap.watch_6};
 
@@ -43,6 +43,7 @@ public class WelcomeActivity extends BaseActivity implements ViewPager.OnPageCha
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
         ButterKnife.bind(this);
+        handler = getObject().getPubicHandler();
         initData();
     }
 
@@ -118,7 +119,7 @@ public class WelcomeActivity extends BaseActivity implements ViewPager.OnPageCha
 
         public void start() {
             stop();
-            handler.postDelayed(this,1500);
+            handler.postDelayed(this, 1500);
         }
 
         public void stop() {

@@ -135,6 +135,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/login_activity_login_button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="30dp"
@@ -161,7 +162,7 @@
             android:button="@drawable/checkbox_select"
             android:paddingLeft="3dp"
             android:text="@string/memory_password"
-            android:textColor="@color/text_color_default"
+            android:textColor="@color/register_text_color"
             android:textSize="16dp"
             />
 
@@ -173,7 +174,7 @@
             android:layout_marginRight="30dp"
             android:background="@null"
             android:text="@string/forget_password"
-            android:textColor="@color/text_color_default"
+            android:textColor="@color/register_text_color"
             android:textSize="16sp"
             />
     </RelativeLayout>
@@ -188,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@color/text_color_default"
+            android:textColor="@color/register_text_color"
             android:text="@string/no_have_account"
             />
         <Button
@@ -197,7 +198,7 @@
             android:layout_height="30dp"
             android:background="@drawable/button_frame_shape"
             android:layout_marginLeft="20dp"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:text="@string/now_register"
             android:textColor="@color/select_text_color"
             />

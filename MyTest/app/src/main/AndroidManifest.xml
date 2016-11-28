@@ -4,6 +4,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".application.IApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -31,5 +32,10 @@
             android:screenOrientation="portrait"
             />
 
+        <activity
+            android:name=".activtiy.FoundPasswordActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            />
     </application>
 </manifest>

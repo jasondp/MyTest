@@ -16,4 +16,7 @@
     <string name="forget_password">忘记密码?</string>
     <string name="no_have_account">还没有帐号?</string>
     <string name="now_register">现在注册</string>
+    <string name="input_account_is_null">帐号不能为空!</string>
+    <string name="input_password_is_null">密码不能为空!</string>
+    <string name="input_account_format_error">邮箱格式错误!</string>
 </resources>

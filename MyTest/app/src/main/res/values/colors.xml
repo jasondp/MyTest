@@ -5,6 +5,6 @@
     <color name="colorAccent">#40e6ff</color>
     <color name="text_color_default">#FF3E4141</color>
     <color name="window_background_color">#FFFFFF</color>
-    <color name="register_text_color">#B6c6c6</color>
+    <color name="register_text_color">#545656</color>
     <color name="select_text_color">#30B4FF</color>
 </resources>
