@@ -57,6 +57,10 @@
             android:name=".activity.ConnectionWatchActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AgainFoundDeviceActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"/>
 
 
     </application>

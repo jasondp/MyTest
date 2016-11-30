@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
+import android.util.Log;
 
 import com.mytest.util.Constants;
 
@@ -55,6 +56,7 @@ public class IApplication extends Application {
 
     public boolean startConnectDevice(BluetoothDevice bluetoothDevice) {
         String address = bluetoothDevice.getAddress();
+        Log.i("jason","connect name:" +bluetoothDevice.getName()+"+++++++++++"+address);
         if (bluetoothAdapter.isDiscovering()) {
             bluetoothAdapter.cancelDiscovery();
         }
@@ -70,6 +72,7 @@ public class IApplication extends Application {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+                return false;
             }
         }
 

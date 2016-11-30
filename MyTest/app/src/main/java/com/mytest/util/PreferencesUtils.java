@@ -39,4 +39,15 @@ public class PreferencesUtils {
         init(context);
         return preferences.getString(Constants.SAVE_USER_PASSWORD, null);
     }
+
+    public static void putString(Context context, String name, String value) {
+        init(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(name, value).apply();
+    }
+
+    public static String getString(Context context, String name) {
+        init(context);
+        return preferences.getString(name, null);
+    }
 }

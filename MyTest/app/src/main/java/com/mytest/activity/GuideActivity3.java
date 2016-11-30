@@ -30,6 +30,8 @@ public class GuideActivity3 extends BaseActivity {
             if (!bluetoothAdapter.isEnabled()) {
                 Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(intent, OPEN_BLUETOOTH);
+            }else{
+                isOPen = true;
             }
         }
     }

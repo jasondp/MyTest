@@ -1,5 +1,6 @@
 package com.mytest.activity;
 
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.mytest.R;
@@ -26,6 +28,7 @@ public class ConnectionWatchActivity extends BaseActivity {
     private Set<BluetoothDevice> bondedDevices;
     private List<BluetoothDevice> usableDevice;
     private long olderTime;
+    private ProgressDialog mProgressDialog;
 
     private BroadcastReceiver foundDevice = new BroadcastReceiver() {
         @Override
@@ -34,14 +37,13 @@ public class ConnectionWatchActivity extends BaseActivity {
             if (action.equals(BluetoothDevice.ACTION_FOUND)) {
                 BluetoothDevice bluetoothDevice = intent.getParcelableExtra
                         (BluetoothDevice.EXTRA_DEVICE);
-
+                Log.i("jason", bluetoothDevice.getName() + " : " + bluetoothDevice.getAddress());
                 if (bluetoothDevice.getName().contains("Nevo")
                         && bluetoothDevice.getBondState() != BluetoothDevice.BOND_BONDED) {
-
                     usableDevice.add(bluetoothDevice);
                 }
-
             } else if (action.equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
+                mProgressDialog.dismiss();
                 if (usableDevice.size() <= 0) {
                     Toast.makeText(ConnectionWatchActivity.this
                             , getString(R.string.not_found_device), Toast.LENGTH_SHORT).show();
@@ -73,6 +75,9 @@ public class ConnectionWatchActivity extends BaseActivity {
         bondedDevices = bluetoothAdapter.getBondedDevices();
         usableDevice = new ArrayList<>();
         olderTime = System.currentTimeMillis();
+        if (bluetoothAdapter.isDiscovering()) {
+            bluetoothAdapter.cancelDiscovery();
+        }
         if (bondedDevices.size() > 0) {
             for (BluetoothDevice device : bondedDevices) {
                 if (device.getName().contains("Nevo")) {
@@ -89,15 +94,13 @@ public class ConnectionWatchActivity extends BaseActivity {
     }
 
     private void startSearchDevices() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage(getString(R.string.wait_some_time));
+        mProgressDialog.show();
         IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(foundDevice, intentFilter);
-
-        IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        registerReceiver(foundDevice, filter);
-
-        if (bluetoothAdapter.isDiscovering()) {
-            bluetoothAdapter.cancelDiscovery();
-        }
+        intentFilter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+        registerReceiver(foundDevice, intentFilter);
         bluetoothAdapter.startDiscovery();
     }
 
