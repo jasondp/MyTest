@@ -2,21 +2,23 @@ package com.mytest.activity;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.mytest.R;
+import com.mytest.adapter.ShowSearchAllDeviceAdapter;
+import com.mytest.application.IApplication;
+import com.mytest.modle.SearchDeviceModel;
+import com.mytest.util.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by boy on 2016/11/28.
@@ -25,70 +27,42 @@ import java.util.Set;
 public class ConnectionWatchActivity extends BaseActivity {
 
     private BluetoothAdapter bluetoothAdapter;
-    private Set<BluetoothDevice> bondedDevices;
-    private List<BluetoothDevice> usableDevice;
-    private long olderTime;
     private ProgressDialog mProgressDialog;
+    private IApplication model;
+    private static final int OPEN_DEVICE_RESULT = 1002;
+    private List<SearchDeviceModel> mSearchDevice;
+    private ListView mListView;
+    private ImageView watchIcon;
+    private ShowSearchAllDeviceAdapter resultAdapter;
 
-    private BroadcastReceiver foundDevice = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action.equals(BluetoothDevice.ACTION_FOUND)) {
-                BluetoothDevice bluetoothDevice = intent.getParcelableExtra
-                        (BluetoothDevice.EXTRA_DEVICE);
-                Log.i("jason", bluetoothDevice.getName() + " : " + bluetoothDevice.getAddress());
-                if (bluetoothDevice.getName().contains("Nevo")
-                        && bluetoothDevice.getBondState() != BluetoothDevice.BOND_BONDED) {
-                    usableDevice.add(bluetoothDevice);
-                }
-            } else if (action.equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
-                mProgressDialog.dismiss();
-                if (usableDevice.size() <= 0) {
-                    Toast.makeText(ConnectionWatchActivity.this
-                            , getString(R.string.not_found_device), Toast.LENGTH_SHORT).show();
-                    startActivity(AgainFoundDeviceActivity.class);
-                    finish();
-                } else {
-                    for (int i = 0; i < usableDevice.size(); i++) {
-                        boolean isConnect = getObject().startConnectDevice(usableDevice.get(i));
-                        if (isConnect == true) {
-                            startActivity(MainActivity.class);
-                            finish();
-                            break;
-                        } else if (i == (usableDevice.size() - 1) && isConnect == false) {
-                            startActivity(AgainFoundDeviceActivity.class);
-                            finish();
-                        }
-                    }
-                }
-            }
-        }
-    };
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connection_search_watch_activity);
-        bluetoothAdapter = getObject().getBluetoothAdapter();
-        bondedDevices = bluetoothAdapter.getBondedDevices();
-        usableDevice = new ArrayList<>();
-        olderTime = System.currentTimeMillis();
-        if (bluetoothAdapter.isDiscovering()) {
-            bluetoothAdapter.cancelDiscovery();
-        }
-        if (bondedDevices.size() > 0) {
-            for (BluetoothDevice device : bondedDevices) {
-                if (device.getName().contains("Nevo")) {
-                    usableDevice.add(device);
-                }
-            }
+        model = getObject();
+        mListView = (ListView) findViewById(R.id.show_search_all_device_list_view);
+        watchIcon = (ImageView) findViewById(R.id.watch_icon);
+        mListView.setVisibility(View.GONE);
+        bluetoothAdapter = model.getBluetoothAdapter();
+        init();
+
+    }
+
+    private void init() {
+        if (bluetoothAdapter.isEnabled()) {
+            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(intent, OPEN_DEVICE_RESULT);
         } else {
             startSearchDevices();
         }
+    }
 
-        if (usableDevice.size() <= 0) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == OPEN_DEVICE_RESULT) {
             startSearchDevices();
         }
     }
@@ -97,16 +71,30 @@ public class ConnectionWatchActivity extends BaseActivity {
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setMessage(getString(R.string.wait_some_time));
         mProgressDialog.show();
-        IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(foundDevice, intentFilter);
-        intentFilter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        registerReceiver(foundDevice, intentFilter);
-        bluetoothAdapter.startDiscovery();
+        model.startSearchDevice();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Constants.SCAN_OVER);
+        registerReceiver(searchDeviceReceiver, intentFilter);
+
     }
+
+    private BroadcastReceiver searchDeviceReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            mProgressDialog.dismiss();
+            mSearchDevice = getObject().getSearchDevice();
+            if(mSearchDevice.size()>0){
+                watchIcon.setVisibility(View.GONE);
+                mListView.setVisibility(View.VISIBLE);
+            }
+            resultAdapter = new ShowSearchAllDeviceAdapter(ConnectionWatchActivity.this,mSearchDevice);
+            mListView.setAdapter(resultAdapter);
+        }
+    };
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(foundDevice);
+        unregisterReceiver(searchDeviceReceiver);
     }
 }

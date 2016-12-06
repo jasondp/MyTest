@@ -32,26 +32,26 @@
         android:textColor="@color/register_text_color"
         android:textSize="12sp"/>
 
-    <!--<FrameLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true">-->
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_tutorial_page5_searching_notice_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        >
+
         <ImageView
+            android:id="@+id/watch_icon"
             android:layout_width="260dp"
             android:layout_height="260dp"
             android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="100dp"
             android:background="@drawable/tutorial_nevo_1"/>
-        <!--<com.medcorp.view.RoundProgressBar-->
-            <!--android:id="@+id/roundProgressBar"-->
-            <!--android:layout_width="315dp"-->
-            <!--android:layout_height="315dp"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android_custom:roundColor="#00000000"-->
-            <!--android_custom:roundProgressColor="@color/tutorial_progress_bar_color"-->
-            <!--android_custom:roundWidth="8dp"-->
-            <!--android_custom:textIsDisplayable="false"/>-->
-    <!--</FrameLayout>-->
+
+        <ListView
+            android:id="@+id/show_search_all_device_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </FrameLayout>
 </RelativeLayout>
